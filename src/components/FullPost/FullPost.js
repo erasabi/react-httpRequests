@@ -18,7 +18,7 @@ class FullPost extends Component {
             // 2) also add `!this.state.loadedPost || ` or else:
                 // the httpReq will never run because loadedPost is null and will never meet other conditions
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
-                axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
+                axios.get('/posts/' + this.props.id)
                     .then(response => {
                         this.setState({ loadedPost: response.data })
                     });
@@ -28,7 +28,7 @@ class FullPost extends Component {
 
     deletePostHandler = () => {
         // delete req will respond with empty response but show code '200' if successful
-        axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
+        axios.delete('/posts/' + this.props.id)
             .then(response => {
                 console.log(response);
             });
