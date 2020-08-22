@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../axios'; //points to new axios.js file we created 
 import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
+
+// rename back to 'axios' so we don't have to change for all requests we made
+const axios = axiosInstance; 
 
 class Blog extends Component {
     state = {
